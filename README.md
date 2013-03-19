@@ -1,6 +1,6 @@
 # fan
 
-A application to select a restaurant randomly from a list.
+A application to select a restaurant randomly from list.
 
 ## Usage
 
