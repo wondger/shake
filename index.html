@@ -7,83 +7,25 @@
 <meta name="description" content="" />
 <meta name="robots" content="all" />
 <meta name="author" content="wondger" />
+<link rel="stylesheet" href="fan.css" />
 </head>
 <body>
 <div class="page">
-    <div class="app">
-        <input id="J_Name" type="text" />
-        <button id="J_Add">Add</button>
-        <button id="J_ViewAll">All</button>
-        <button id="J_Select">Select</button>
+    <div id="J_Panel" class="panel">
+        <div class="add">
+            <input class="i-name" type="text" id="J_Name" />
+            <button class="btn-add" id="J_Add">╋</button>
+        </div>
+        <ul class="list">
+            <li><span>八家九家</span><button class="btn-rm">-</button></li>
+            <li><span>八家九家</span><button class="btn-rm">-</button></li>
+            <li><span>八家九家</span><button class="btn-rm">-</button></li>
+            <li><span>八家九家</span><button class="btn-rm">-</button></li>
+            <li><span>八家九家</span><button class="btn-rm">-</button></li>
+        </ul>
     </div>
+    <button class="btn-admin">admin</button>
 </div>
-<script type="text/javascript">
-//<![CDATA[
-(function(){
- var lsSupport = (function(){
-        return window.localStorage && window.localStorage.setItem && window.localStorage.getItem && window.localStorage.removeItem;
-     })();
-
- var key = "_fan_data_";
- function read() {
-    var data = window.localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
- }
- function add(value) {
-    var _data = read(),
-    data = _data || {};
-    data.list = data.list || [];
-
-    data.list.push(value);
-
-    window.localStorage.setItem(key, JSON.stringify(data));
- }
- function del(key) {
-    var _data = read(),
-    data = _data ? JSON.parse(_data) : {};
-    delete data["key"];
-    window.localStorage.setItem(key, JSON.stringify(data));
- }
- function update(value) {
-     add(value);
- }
- function select() {
-     var _data = read(),
-         data = _data || {},
-         list = data.list;
-
-     if (!list || !list.length) {
-         alert("Please add some restaurants!");
-         return;
-     }
-
-     return data.list[Math.floor(Math.random() * list.length)];
- }
- function shake() {
- }
-
- function $(id) {
-     return document.getElementById(id);
- }
- var btnAdd = $("J_Add"),
-     btnSelect = $("J_Select"),
-     name = $("J_Name");
-
- btnAdd.onclick = function() {
-     if (name.value) {
-        add(name.value);
-     }
- }
-
- btnSelect.onclick = function() {
-     var name = select();
-
-     if (name) {
-         alert(name);
-     }
- }
-})();
-//]]>
-</script>
+<script type="text/javascript" src="fan.js"></script>
 </body>
 </html>
