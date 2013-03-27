@@ -19,20 +19,22 @@
         return data ? JSON.parse(data) : null;
     }
 
-    function add(value) {
+    function addName(name) {
         var data = read() || {},
             list = data.list;
 
-        if (exist(value)) {
+        if (exist(name)) {
             alert("exist!");
             return;
         }
 
-        data.list.push(value);
+        data.list.push(name);
 
         window.localStorage.setItem(key, JSON.stringify(data));
 
         alert("add success!");
+
+        elName && (elName.value = "");
     }
 
     function del(key) {
@@ -43,9 +45,31 @@
 
         window.localStorage.setItem(key, JSON.stringify(data));
     }
-    function update(value) {
-        add(value);
+
+    function delName(name) {
+        var data = read() || {},
+            list = data.list;
+
+        if (!list || !list.length) return;
+
+
+        var i = 0;
+        while(list[i]) {
+            if (list[i] === name) {
+                list.splice(i);
+            }
+            i++;
+        }
+
+        window.localStorage.setItem(key, JSON.stringify(data));
+
+        alert("delete " + name + " success!");
     }
+
+    function updateName(name) {
+        addName(name);
+    }
+
     function exist(name) {
         var data = read() || {},
             list = data.list;
@@ -89,6 +113,24 @@
         return node;
     }
 
+    function bind(el, evt, handle) {
+        if (!el || (el.nodeType !== 1 && el.nodeType !== 9) || !evt || Object.prototype.toString.call(handle) !== '[object Function]') {
+            return;
+        }
+
+        el.addEventListener(evt, handle);
+    }
+
+    function delegate(el, cls, evt, handle) {
+        if (!cls) return;
+
+        bind(el, evt, function(e){
+            if (e.target.className.indexOf(cls) >= 0) {
+                handle(e);
+            }
+        });
+    }
+
     function renderList() {
         var elList = $("J_List");
         var data = read() || {},
@@ -108,23 +150,31 @@
 
     var btnAdd = $("J_Add"),
         btnAdmin = $("J_Admin"),
-        name = $("J_Name");
+        elName = $("J_Name");
 
-    btnAdd.onclick = function() {
-        if (name.value) {
-            add(name.value);
+    bind(btnAdd, "click", function(){
+        if (elName.value) {
+            addName(elName.value);
             renderList();
         }
         else {
             alert("please input something!");
         }
-    }
+    });
 
     var _panel_show_ = false;
-    btnAdmin.onclick = function() {
+    bind(btnAdmin, "click", function(e){
         $("J_Panel").style.display = _panel_show_ ? "none" : "block";
         _panel_show_ = !_panel_show_;
-    }
+    });
+
+    delegate(document, "btn-rm", "click", function(e){
+        var name = e.target.getAttribute("data-name");
+        if (name) {
+            delName(name);
+            renderList();
+        }
+    });
 
     renderList();
 
