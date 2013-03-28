@@ -1,5 +1,5 @@
 /*
- * @name: fan.js
+ * @name: shake.js
  * @description: 
  * @author: wondger@gmail.com
  * @date: 2013-03-20
@@ -20,8 +20,8 @@
     }
 
     function addName(name) {
-        var data = read() || {},
-            list = data.list;
+        var data = read() || {};
+        data.list = data.list || [];
 
         if (exist(name)) {
             alert("exist!");

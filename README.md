@@ -1,9 +1,9 @@
-# fan
+# shake
 
-A application to select a restaurant randomly from list.
+A application to get somethinng randomly from a list.
 
 ## Usage
 
-Just to visit the webpage http://wondger.github.com/fan.
+Just to visit the webpage http://wondger.github.com/shake.
 
 It's compatible in PC, mobile phone, pad...
