@@ -16,12 +16,12 @@ abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,men
 /*reset*/
 
 .panel{display:none;margin:10px;padding:10px;font:normal 14px/1.6 arial;border-radius:8px;background:rgba(0, 0, 0, .75);}
-    .add{}
-        .i-name{width:160px;height:20px;line-height:20px;padding:5px;border-radius:3px;border:none;}
+    .add{padding-right:35px;position:relative;}
+        .i-name{display:block;height:20px;line-height:20px;padding:5px;border-radius:3px;border:none;}
+        .btn-add{display:inline-block;width:30px;height:30px;line-height:30px;color:#FFF;font-size:16px;font-family:"Courier New",Courier,monospace;vertical-align:middle;border:none;border-radius:15px;background-color:#2E7E2E;cursor:pointer;position:absolute;right:0;}
     .list{color:#FFF;padding-top:10px;}
         .list li{padding:5px;position:relative;line-height:22px;border-bottom:1px solid #464646;border-radius:5px;}
         .list li:hover{background:#000;}
-        .btn-add{display:inline-block;width:30px;height:30px;line-height:30px;color:#FFF;font-size:16px;font-family:"Courier New",Courier,monospace;vertical-align:middle;border:none;border-radius:15px;background-color:#2E7E2E;cursor:pointer;}
         .btn-rm{display:inline-block;width:22px;height:22px;line-height:22px;color:#F00;font-size:28px;font-family:"Courier New",Courier,monospace;vertical-align:middle;cursor:pointer;position:absolute;right:5px;background:none;border:none;}
         
 .btn-admin{display:block;width:50px;height:50px;color:#FFF;background:#DE3235;opacity:.8;text-indent:-9999em;border:none;position:absolute;right:0;bottom:0;border-radius:25px;cursor:pointer;}
