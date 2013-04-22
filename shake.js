@@ -153,6 +153,7 @@
         item.style.borderRadius = width + "px";
         item.style.width = item.style.height = width + "px";
         item.style.lineHeight = width + "px";
+        item.style.zIndex = 0;
 
         item.className = "item";
     }
