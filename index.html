@@ -13,14 +13,16 @@
 <body>
 <div class="page">
     <div id="J_Stage" class="stage"></div>
-    <div id="J_Panel" class="panel">
-        <div class="add">
-            <div class="add-item"><input class="i-name" type="text" id="J_Name" /></div>
-            <button class="btn-add" id="J_Add">╋</button>
+    <div class="panel-wrap" id="J_PanelWrap">
+        <div id="J_Panel" class="panel">
+            <div class="add">
+                <div class="add-item"><input class="i-name" type="text" id="J_Name" /></div>
+                <button class="btn-add" id="J_Add">╋</button>
+            </div>
+            <ul class="list" id="J_List">
+                <!--<li><span>八家九家</span><button class="btn-rm" data-name="八家九家">-</button></li>-->
+            </ul>
         </div>
-        <ul class="list" id="J_List">
-            <!--<li><span>八家九家</span><button class="btn-rm" data-name="八家九家">-</button></li>-->
-        </ul>
     </div>
     <button class="btn-admin" id="J_Admin">admin</button>
 </div>

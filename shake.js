@@ -283,7 +283,7 @@
 
     var _panel_show_ = false;
     bind(btnAdmin, "click", function(e){
-        $("J_Panel").style.display = _panel_show_ ? "none" : "block";
+        $("J_PanelWrap").style.display = _panel_show_ ? "none" : "block";
         _panel_show_ = !_panel_show_;
     });
 
